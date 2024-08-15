@@ -69,6 +69,10 @@ a {
   color: var(--clr-neutral-5);
 }
 
+.txt-neutral-7 {
+  color: var(--clr-neutral-7);
+}
+
 body {
   font-family: var(--ff-default);
   font-size: clamp(0.85rem, 2vw, 1rem);
