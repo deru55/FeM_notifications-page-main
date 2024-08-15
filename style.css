@@ -1,0 +1,204 @@
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: local("PlusJakartaSans-Medium"),
+    url(assets/fonts/static/PlusJakartaSans-Medium.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: local("PlusJakartaSans-ExtraBold"),
+    url(assets/fonts/static/PlusJakartaSans-ExtraBold.ttf);
+  font-weight: 800;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --ff-default: "Plus Jakarta Sans", sans-serif;
+
+  --fs-heading-1: 1.25rem;
+
+  --fw-500: 500;
+  --fw-800: 800;
+
+  --clr-primary-1: hsl(1, 90%, 64%);
+  --clr-primary-2: hsl(219, 85%, 26%);
+
+  --clr-neutral-1: hsl(0, 0%, 100%);
+  --clr-neutral-2: hsl(210, 60%, 98%);
+  --clr-neutral-3: hsl(211, 68%, 94%);
+  --clr-neutral-4: hsl(205, 33%, 90%);
+  --clr-neutral-5: hsl(219, 14%, 63%);
+  --clr-neutral-6: hsl(219, 12%, 42%);
+  --clr-neutral-7: hsl(224, 21%, 14%);
+}
+
+/* utilities classes */
+.flow > * + * {
+  margin-top: var(--flow-spacer, 1.5rem);
+}
+
+.fs-heading-1 {
+  font-size: clamp(var(--fs-heading-1), 5vw, 1.5rem);
+}
+
+.fw-bold {
+  font-weight: var(--fw-800);
+}
+
+.txt-neutral-5 {
+  color: var(--clr-neutral-5);
+}
+
+body {
+  font-family: var(--ff-default);
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  font-weight: var(--fw-500);
+  line-height: 1.6;
+  color: var(--clr-neutral-6);
+  background-color: var(--clr-neutral-2);
+
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.card {
+  --padding: clamp(1rem, 3vw, 2rem);
+
+  max-width: 45.5rem;
+  background-color: var(--clr-neutral-1);
+  padding: var(--padding);
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#unread-notifications {
+  margin-left: 0.5rem;
+  padding: 0.15rem 0.65rem;
+  font-size: 1rem;
+  color: var(--clr-neutral-1);
+  background-color: var(--clr-primary-2);
+  border-radius: 0.5rem;
+  vertical-align: text-bottom;
+}
+
+.button {
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+  border: 0;
+}
+
+.card__content {
+  margin-top: var(--padding);
+
+  display: grid;
+  gap: 0.5rem;
+}
+
+.notification-grid {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 1rem;
+}
+
+.notification-grid img {
+  width: clamp(2.5rem, 5vw, 3rem);
+}
+
+.notification-grid a {
+  font-weight: var(--fw-800);
+}
+
+.notification-grid a:where(:hover, :focus-visible),
+.button:where(:hover, :focus-visible) {
+  color: var(--clr-primary-2) !important;
+}
+
+.nt-type-react a {
+  color: var(--clr-neutral-6);
+}
+
+.nt-type-group a {
+  color: var(--clr-primary-2);
+}
+
+.nt-type-msg .msg {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  border: 1px solid var(--clr-neutral-4);
+  border-radius: 0.5rem;
+}
+
+.msg:where(:hover, :focus-visible) {
+  cursor: pointer;
+  background-color: var(--clr-neutral-3);
+}
+
+.nt-type-comment {
+  display: grid;
+  grid-template-columns: auto max-content;
+  column-gap: 1rem;
+}
+
+.nt-type-comment img:where(:hover, :focus) {
+  outline: 1px solid var(--clr-neutral-4);
+  border-radius: 0.5rem;
+  padding: 1px;
+}
+
+.nt-type-comment > a {
+  grid-area: 1 / 2 / 3 / 3;
+}
+
+.unread {
+  background-color: var(--clr-neutral-2);
+}
+
+.user-name {
+  color: var(--clr-neutral-7) !important;
+}
+
+.unread .notification-title::after {
+  content: "";
+  display: inline-block;
+  margin-left: 0.25rem;
+  width: 0.5rem;
+  aspect-ratio: 1;
+  background-color: var(--clr-primary-1);
+  border-radius: 50%;
+  vertical-align: super;
+}
+
+@media screen and (min-width: 45.5rem) {
+  .card {
+    border-radius: 1rem;
+  }
+}
